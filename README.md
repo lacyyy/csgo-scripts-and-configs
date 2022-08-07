@@ -17,6 +17,8 @@ Some files in here are work-in-progress and I will publish updated versions here
    - Start using files ending in "**.cfg**" by entering `exec <FILE-NAME>` into the game console. Don't include the "**.cfg**" ending in the command prompt.
    - Start using files ending in "**.nut**" by entering `script_execute <FILE-NAME>` into the game console. Don't include the "**.nut**" ending in the command prompt.
 
+## Caution!
+If you join official servers after running "**.nut**" files with `script_execute` in your local server, you will be kicked with the message "***Pure server: client file does not match server.***"! Luckily, this won't result in a ban or cooldown. To avoid this, simply restart your game after using "**.nut**" scripts, if you want to play on official servers afterwards.
 
 ## Overview
 - Danger Zone

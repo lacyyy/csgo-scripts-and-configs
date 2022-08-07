@@ -6,6 +6,12 @@
 //          dzsim_bm_trigger_area_display.nut script.
 //          I only made this for my own usage, so it's not well explained and you can't just run it.
 //
+// CAUTION: If you join official servers after running this script with "script_execute" in your
+//          local server, you will be kicked with the message "Pure server: client file does not
+//          match server."! Luckily, this won't result in a ban or cooldown. To avoid this, simply
+//          restart your game after using this scripts, if you want to play on official
+//          servers afterwards.
+//
 // Made by lacyyy:
 //   https://github.com/lacyyy
 //   https://steamcommunity.com/profiles/76561198162669616
