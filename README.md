@@ -28,7 +28,7 @@ Some files in here are work-in-progress and I will publish updated versions here
   - `dz_got_talent_e5_with_chickens.nut` : Same as before, but adds functionality to reset chickens
   - `backpack_bump_practice.cfg` : *(Old and not easy to use)* Practice script for tricks using the [Backpack Bump Exploit](https://youtu.be/8Lc2LpoFi-8)
 - Reverse Engineering
-  - `dzsim_bm_trigger_area_scan.nut` and `dzsim_bm_trigger_area_display.nut` : Used to scan and visualize the area in which a player can activate a Bump Mine. *(Undocumented and not ready-to-use)*
+  - `dzsim_bm_trigger_area_scan.nut` and `dzsim_bm_trigger_area_display.nut` : Used to scan and visualize the area in which a player can activate a Bump Mine. [Demonstration video.](https://youtu.be/EF9KEgi35aE) *(Undocumented and not ready-to-use)*
 
 
 ## Tutorials for Bump Mine beginners
