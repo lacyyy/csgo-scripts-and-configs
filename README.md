@@ -4,6 +4,9 @@ Here are some useful scripts and configs, mainly for Bump Mine practice. I've al
 
 Some files in here are work-in-progress and I will publish updated versions here. Check the [change log](https://github.com/lacyyy/csgo-scripts-and-configs/commits/main) for recent changes to the files.
 
+## ***"Will I get banned for using this?"***
+No! These scripts only work in your offline server and they don't get you VAC banned or anything! However, if you join official servers after using "**.nut**" scripts locally, you can get kicked. Restart the game to not get kicked again.
+If you run "**.cfg**" configs on an official server, you can get kicked too, avoid executing those.
 
 ## How to Download, Install and Use
 1. Download all scripts and configs in this collection by clicking the big green "Code" button on this page and then selecting "Download ZIP".
