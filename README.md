@@ -19,6 +19,12 @@ If you run "**.cfg**" configs on an official server, you can get kicked too, avo
 3. Now in CS:GO, load an offline map and:
    - Start using files ending in "**.cfg**" by entering `exec <FILE-NAME>` into the game console. Don't include the "**.cfg**" ending in the command prompt.
    - Start using files ending in "**.nut**" by entering `script_execute <FILE-NAME>` into the game console. Don't include the "**.nut**" ending in the command prompt.
+   - All off the practice scripts become really useful once you bind them to a key! For example, enter `bind r "script_execute bm"` into the game console to reset the Bump Mine practice (using the bm.nut file) each time you press the R key! You can change the key to any other key.
+
+Bind "**.nut**" scripts: `bind r "script_execute <SCRIPT-NAME>"`
+
+Bind "**.cfg**" configs: `bind r "exec <CONFIG-NAME>"`
+
 
 ## Caution!
 If you join official servers after running "**.nut**" files with `script_execute` in your local server, you will be kicked with the message "***Pure server: client file does not match server.***"! Luckily, this won't result in a ban or cooldown. To avoid this, simply restart your game after using "**.nut**" scripts, if you want to play on official servers afterwards.
