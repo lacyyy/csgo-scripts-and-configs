@@ -221,7 +221,7 @@ function bmtf_loop_tick()
 					EntFireByHandle(bm, "AddOutput", "origin 16000 16000 16000", 0.0, null, null )
 					bm.SetVelocity(Vector(0,0,0)) // idk maybe this helps avoid errors
 					EntFireByHandle(bm, "DisableDraw", "", 0.0, null, null ) // Remove sound
-					EntFireByHandle(bm, "Kill", "", 2*FrameTime(), null, null ) // Delete with slight delay
+					EntFireByHandle(bm, "Kill", "", 4*FrameTime(), null, null ) // Delete with slight delay
 					break
 				}
 			}
