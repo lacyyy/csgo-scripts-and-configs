@@ -35,38 +35,38 @@
 // BM_TRIGGER_FIX_* name prefixes are abbreviated as BMTF_*
 
 // -- GAME CONSTANTS --
-BMTF_BM_ARM_DELAY <- 0.3 // in seconds (update this value if cvar value sv_bumpmine_arm_delay is different)
-BMTF_BM_ARM_DELAY_TICKS <- (BMTF_BM_ARM_DELAY / FrameTime() + 0.5).tointeger()
-BMTF_BM_DETONATE_DELAY <- 0.25 // in seconds (update this value if cvar value sv_bumpmine_detonate_delay is different)
-BMTF_BM_DETONATE_DELAY_TICKS <- (BMTF_BM_DETONATE_DELAY / FrameTime() + 0.5).tointeger()
-BMTF_BM_THINK_INTERVAL <- 0.1 // bumpmine trigger check interval in seconds
-BMTF_BM_THINK_INTERVAL_TICKS <- (BMTF_BM_THINK_INTERVAL / FrameTime() + 0.5).tointeger()
-BMTF_BM_BOOST_COOLDOWN <- 0.4 // in seconds, per player, between each bumpmine detonation
-BMTF_BM_BOOST_SPEED <- 1200 // Velocity added to player during bm detonation
-BMTF_BM_AABB_DIST <- 81 // Length of bumpmine trigger check AABB in +X,-X,+Y,-Y,+Z,-Z direction
-BMTF_PLAYER_AABB_WIDTH <- 32
-BMTF_PLAYER_AABB_HEIGHT_STANDING <- 72
-BMTF_PLAYER_AABB_HEIGHT_CROUCHING <- 54
+::BMTF_BM_ARM_DELAY <- 0.3 // in seconds (update this value if cvar value sv_bumpmine_arm_delay is different)
+::BMTF_BM_ARM_DELAY_TICKS <- (BMTF_BM_ARM_DELAY / FrameTime() + 0.5).tointeger()
+::BMTF_BM_DETONATE_DELAY <- 0.25 // in seconds (update this value if cvar value sv_bumpmine_detonate_delay is different)
+::BMTF_BM_DETONATE_DELAY_TICKS <- (BMTF_BM_DETONATE_DELAY / FrameTime() + 0.5).tointeger()
+::BMTF_BM_THINK_INTERVAL <- 0.1 // bumpmine trigger check interval in seconds
+::BMTF_BM_THINK_INTERVAL_TICKS <- (BMTF_BM_THINK_INTERVAL / FrameTime() + 0.5).tointeger()
+::BMTF_BM_BOOST_COOLDOWN <- 0.4 // in seconds, per player, between each bumpmine detonation
+::BMTF_BM_BOOST_SPEED <- 1200 // Velocity added to player during bm detonation
+::BMTF_BM_AABB_DIST <- 81 // Length of bumpmine trigger check AABB in +X,-X,+Y,-Y,+Z,-Z direction
+::BMTF_PLAYER_AABB_WIDTH <- 32
+::BMTF_PLAYER_AABB_HEIGHT_STANDING <- 72
+::BMTF_PLAYER_AABB_HEIGHT_CROUCHING <- 54
 // Max distance (from bm origin to player center) that a player can trigger a bm(exact value is ca. 121), squared
-BMTF_MAX_PLAYER_BM_TRIG_DIST_SQR <- 150*150 // Used to speed up trigger calculations
+::BMTF_MAX_PLAYER_BM_TRIG_DIST_SQR <- 150*150 // Used to speed up trigger calculations
 
 // -- SCRIPT DATA --
-BMTF_LOGIC_RELAY_NAME <- "bm_trigger_fix_relay"
-BMTF_FIRST_INIT <- Entities.FindByName(null, BMTF_LOGIC_RELAY_NAME ) == null
+::BMTF_LOGIC_RELAY_NAME <- "bm_trigger_fix_relay"
+::BMTF_FIRST_INIT <- Entities.FindByName(null, BMTF_LOGIC_RELAY_NAME ) == null
 
 // If script was run before, keep the old bumpmine tables to remember each bm's age!
 if (BMTF_FIRST_INIT) {
-	BMTF_TABLE_player_last_boost <- {} // Each value is the Time() value from when the player was last boosted
+	::BMTF_TABLE_player_last_boost <- {} // Each value is the Time() value from when the player was last boosted
 
 	// Tables of data of each bumpmine. Slots are bumpmine_projectile handles
 
 	// Each value is an int, the number of ticks since the bm was placed
-	BMTF_TABLE_bm_ticks <- {}
+	::BMTF_TABLE_bm_ticks <- {}
 	// Each value is the player that triggered the bm, or null if not yet triggered by a player.
 	// This value is null for a real/original bm and non-null for a dummy bm
-	BMTF_TABLE_bm_triggering_player <- {}
+	::BMTF_TABLE_bm_triggering_player <- {}
 	// Each value is an int, the value of BMTF_TABLE_bm_ticks when the bm was first triggered by a player
-	BMTF_TABLE_bm_trigger_tick <- {}
+	::BMTF_TABLE_bm_trigger_tick <- {}
 	
 	// All placed bumpmines on the map are assumed to be armed (even though they might not be).
 	// We don't care because this inaccuracy only occurs when running the script for the first time.
@@ -81,20 +81,20 @@ if (BMTF_FIRST_INIT) {
 
 }
 
-function bmtf_del_bm_table_entries(bm) {
+::bmtf_del_bm_table_entries <- function(bm) {
 	delete BMTF_TABLE_bm_ticks[bm]
 	delete BMTF_TABLE_bm_triggering_player[bm]
 	delete BMTF_TABLE_bm_trigger_tick[bm]
 }
 
-function bmtf_is_alive_player(player) {
+::bmtf_is_alive_player <- function(player) {
 	// If player is dead, in no team or a spectator, their health is 0
 	if (!player || !player.IsValid() || player.GetHealth() == 0) return false
 	return true
 }
 
 // Credit to zer0.k for reverse engineering the precise formula
-function bmtf_accurate_bm_trigger_check(bm, player) {
+::bmtf_accurate_bm_trigger_check <- function(bm, player) {
 	local bm_origin = bm.GetOrigin()
 	local p_center_dist_vec = player.GetCenter() - bm_origin
 
@@ -126,7 +126,7 @@ function bmtf_accurate_bm_trigger_check(bm, player) {
 	return final <= 64.0
 }
 
-function bmtf_loop_tick()
+::bmtf_loop_tick <- function()
 {
 	local current_time = Time()
 	local deletable_slots = []
@@ -308,7 +308,7 @@ function bmtf_loop_tick()
 	}
 }
 
-function bmtf_create_relay()
+::bmtf_create_relay <- function()
 {
 	local relay = Entities.FindByName( null, BMTF_LOGIC_RELAY_NAME )
 	local has_old_relay_existed = relay != null
@@ -333,7 +333,7 @@ function bmtf_create_relay()
 	}
 }
 
-function bmtf_init() {
+::bmtf_init <- function() {
 	bmtf_create_relay()
 	ScriptPrintMessageChatAll("\x01 Bumpmines now trigger more consistently!")
 	ScriptPrintMessageChatAll("\x01 Note: Restarting warmup or starting the match disables")
