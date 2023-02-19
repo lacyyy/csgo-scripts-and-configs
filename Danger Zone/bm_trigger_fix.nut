@@ -29,6 +29,7 @@
 // Somehow show that the script is active (color of dummy bm or effect?)
 // Disclaimer: there are some sound bugs
 // Disclaimer: bumpmines don't break doors
+// Disclaimer: Damage from being boosted into a wall might no longer occur
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
