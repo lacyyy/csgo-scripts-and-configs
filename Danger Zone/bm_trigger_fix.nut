@@ -30,6 +30,7 @@
 // Disclaimer: there are some sound bugs
 // Disclaimer: bumpmines don't break doors
 // Disclaimer: Damage from being boosted into a wall might no longer occur
+// Disclaimer: Player-activated Bump Mine detonations don't move physics items (crates...)? TODO confirm
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
