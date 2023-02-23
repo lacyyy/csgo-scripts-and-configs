@@ -275,9 +275,7 @@ if (BMTF_FIRST_INIT) {
 
                 foreach (p in boosted_players) {
                     BMTF_TABLE_player_last_boost[p] = current_time // Remember each player's most recent boost time
-
-                    printl("boost player at " + p.GetOrigin())
-
+                    
                     local boost_dir = p.GetCenter() + Vector(0,0,8) - bm.GetOrigin()
                     if (boost_dir.z < 0) { // Different method for z < 0
                         boost_dir = p.GetOrigin() + Vector(0,0,p.GetBoundingMaxs().z) - bm.GetOrigin()
