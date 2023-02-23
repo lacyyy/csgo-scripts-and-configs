@@ -11,7 +11,7 @@
 // CAUTION: If you join official servers after running this script with "script_execute" in your
 //          local server, you will be kicked with the message "Pure server: client file does not
 //          match server."! Luckily, this won't result in a ban or cooldown. To avoid this, simply
-//          restart your game after using this scripts, if you want to play on official
+//          restart your game after using this script, if you want to play on official
 //          servers afterwards.
 //
 // Made by lacyyy:
@@ -28,7 +28,7 @@
 //    bm and an environment-triggered bm
 // Somehow show that the script is active (color of dummy bm or effect?)
 // Disclaimer: there are some sound bugs
-// Disclaimer: bumpmines don't break doors
+// Disclaimer: Bump Mine detonations don't break doors
 // Disclaimer: Damage from being boosted into a wall might no longer occur
 // Disclaimer: Player-activated Bump Mine detonations don't move physics items (crates...)? TODO confirm
 
@@ -191,8 +191,13 @@ if (BMTF_FIRST_INIT) {
         local is_detonating_dummy_bm = BMTF_TABLE_bm_triggering_player[bm] != null
         
         if (!is_detonating_dummy_bm) { // If it's an original bm, check if it's being triggered by a player
-            // 2 ticks were added to the arm phase after fine-tuning on 64 tick
-            if (BMTF_TABLE_bm_ticks[bm] < BMTF_BM_ARM_DELAY_TICKS + 2) // Skip if bm is not armed yet
+            // Skip if bm is not armed yet. Measuring this arming time must be precise.
+            // If we would underestimate arming time here, the player could trigger a bm too early.
+            // If we would overestimate arming time here, the player could trigger the bm during the time period
+            // in which the bm is actually armed and this script thinks the bm isn't armed yet, possibly leading
+            // to boosting the player without this script knowing, possibly leading to an illegal boost
+            // afterwards (due to a wrong boost cooldown).
+            if (BMTF_TABLE_bm_ticks[bm] < BMTF_BM_ARM_DELAY_TICKS) 
                 continue
             
             foreach (p in alive_players) {
@@ -270,6 +275,8 @@ if (BMTF_FIRST_INIT) {
 
                 foreach (p in boosted_players) {
                     BMTF_TABLE_player_last_boost[p] = current_time // Remember each player's most recent boost time
+
+                    printl("boost player at " + p.GetOrigin())
 
                     local boost_dir = p.GetCenter() + Vector(0,0,8) - bm.GetOrigin()
                     if (boost_dir.z < 0) { // Different method for z < 0
