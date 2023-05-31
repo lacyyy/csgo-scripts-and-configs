@@ -32,6 +32,7 @@ If you join official servers after running "**.nut**" files with `script_execute
 ## Overview
 - Danger Zone
   - `bm.nut` : Efficient Bump Mine practice for any map
+  - `bm_rampslide_fix.nut`: Work-in-progress, but usable. Makes rampsliding consistent. Single-player only.
   - `bm_trigger_fix.nut` : Enables Bump Mines consistently detonating, no matter how fast the activating player is moving
   - `bm_trigger_vis.nut` : Visualizes the area a Bump Mine can be triggered in by a player (only shown for hosting player) and roughly calculates Bump Mine activation odds
   - `dz_got_talent_e4.nut` : Practice script on dz_county for [Danger Zone's Got Talent Episode 4](https://youtu.be/wBbIr-EE1Gw)
