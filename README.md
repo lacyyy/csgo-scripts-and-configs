@@ -36,8 +36,9 @@ If you join official servers after running "**.nut**" files with `script_execute
   - `bm_trigger_fix.nut` : Enables Bump Mines consistently detonating, no matter how fast the activating player is moving
   - `bm_trigger_vis.nut` : Visualizes the area a Bump Mine can be triggered in by a player (only shown for hosting player) and roughly calculates Bump Mine activation odds
   - `dz_got_talent_e4.nut` : Practice script on dz_county for [Danger Zone's Got Talent Episode 4](https://youtu.be/wBbIr-EE1Gw)
-  - `dz_got_talent_e5.nut` : Practice script on dz_vineyard for [Danger Zone's Got Talent Episode 5](https://youtube.com/playlist?list=PLyCGb0pwEr_SHF2ef6XJBpvQUfpY_oaXe)
+  - `dz_got_talent_e5.nut` : Practice script on dz_vineyard for [Danger Zone's Got Talent Episode 5](https://youtu.be/NF-4YtDLtcs)
   - `dz_got_talent_e5_with_chickens.nut` : Same as before, but adds functionality to reset chickens
+  - `dz_got_talent_e6.nut` : Practice script on dz_ember for [Danger Zone's Got Talent Episode 6](https://youtu.be/RI7M7fiG2mA)
   - `backpack_bump_practice.cfg` : *(Old and not easy to use)* Practice script for tricks using the [Backpack Bump Exploit](https://youtu.be/8Lc2LpoFi-8)
 - Reverse Engineering
   - `dzsim_bm_trigger_area_scan.nut` and `dzsim_bm_trigger_area_display.nut` : Used to scan and visualize the area in which a player can activate a Bump Mine. [Demonstration video.](https://youtu.be/EF9KEgi35aE) *(Undocumented and not ready-to-use)*
