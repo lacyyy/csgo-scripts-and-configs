@@ -19,7 +19,7 @@ If you run "**.cfg**" configs on an official server, you can get kicked too, avo
 3. Now in CS:GO, load an offline map and:
    - Start using files ending in "**.cfg**" by entering `exec <FILE-NAME>` into the game console. Don't include the "**.cfg**" ending in the command prompt.
    - Start using files ending in "**.nut**" by entering `script_execute <FILE-NAME>` into the game console. Don't include the "**.nut**" ending in the command prompt.
-   - All off the practice scripts become really useful once you bind them to a key! For example, enter `bind r "script_execute bm"` into the game console to reset the Bump Mine practice (using the bm.nut file) each time you press the R key! You can change the key to any other key.
+   - All of the practice scripts become really useful once you bind them to a key! For example, enter `bind r "script_execute bm"` into the game console to reset the Bump Mine practice (using the bm.nut file) each time you press the R key! You can change the key to any other key.
 
 Bind "**.nut**" scripts: `bind r "script_execute <SCRIPT-NAME>"`
 
