@@ -19,30 +19,6 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// ATTENTION:
-//   There might be a much simpler method to make Bump Mines trigger consistently.
-//   This script literally recreates Bump Mine arming, triggering and detonation.
-//   However, I found out somewhere that entities can be forced to run their native
-//   think function. That way, Bump Mine triggering might be made consistent while
-//   keeping more of other Bump Mine gameplay properties, which get lost when trying
-//   to recreate them in VScript.
-//
-//   I didn't test the new method much, here is what's currently known:
-//     - Disabling Bump Mine trigger check and detonation (when already triggered):
-//
-//         ent_fire bumpmine_projectile addoutput "nextthink -1"
-//
-//     - Enabling Bump Mines again (if Bump Mine was already triggered, this
-//       immediately executes detonation):
-//
-//         ent_fire bumpmine_projectile addoutput "nextthink 1"
-//
-//     - TODO CHECK: Does constantly disabling/enabling make picking them up impossible?
-//     - NOTE: Execution of Bump Mine's native think function can be made visible by running:
-//
-//         r_visualizetraces 1
-
-
 // Determine position precisely with: ent_fire !self RunScriptCode "printl(self.GetOrigin())"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
