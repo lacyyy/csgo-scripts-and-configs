@@ -2,7 +2,7 @@
 
 Here are some useful scripts and configs, mainly for Bump Mine practice. I've also added scripts I used for reverse engineering CS:GO's game mechanics, but they are not explained or ready-to-use.
 
-Some files in here are work-in-progress and I will publish updated versions here. Check the [change log](https://github.com/lacyyy/csgo-scripts-and-configs/commits/main) for recent changes to the files.
+I will publish updated versions here. Check the [change log](https://github.com/lacyyy/csgo-scripts-and-configs/commits/main) for recent changes to the files.
 
 ## ***"Will I get banned for using this?"***
 No! These scripts only work in your offline server and they don't get you VAC banned or anything! However, if you join official servers after using "**.nut**" scripts locally, you can get kicked. Restart the game to not get kicked again.
@@ -26,8 +26,9 @@ Bind "**.nut**" scripts: `bind r "script_execute <SCRIPT-NAME>"`
 Bind "**.cfg**" configs: `bind r "exec <CONFIG-NAME>"`
 
 
-## Caution!
+## [Outdated] Caution!
 If you join official servers after running "**.nut**" files with `script_execute` in your local server, you will be kicked with the message "***Pure server: client file does not match server.***"! Luckily, this won't result in a ban or cooldown. To avoid this, simply restart your game after using "**.nut**" scripts, if you want to play on official servers afterwards.
+[Note: Official CS:GO servers no longer exist]
 
 ## Overview
 - Danger Zone
